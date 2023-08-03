@@ -19,6 +19,7 @@ const Login = () => {
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log(`${email}, ${password}`);
+    signIn("google");
   }
 
   return (
@@ -74,7 +75,7 @@ const Login = () => {
           </div>
           <div className="flex flex-col justify-between gap-4 mt-4">
             <Button title="Login" color="text-white" bgColor="bg-primary-blue" type="submit" />
-            <Button title="Sign In with Google" type="button" leftIcon="/google.svg" color="text-[#B8BAC3]" borderColor="border-[#E3E3E3]" />
+            <Button title="Sign In with Google" type="submit" leftIcon="/google.svg" color="text-[#B8BAC3]" borderColor="border-[#E3E3E3]" />
           </div>
         </form>
         <p className="mt-24 text-[#C8C8CF]">

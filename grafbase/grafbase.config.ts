@@ -1,42 +1,60 @@
 import { g, auth, config } from '@grafbase/sdk';
 
-const post = g.model('Post', {
-  title: g.string(),
-  slug: g.string().unique(),
-  content: g.string().optional(),
-  publishedAt: g.datetime().optional(),
-  comments: g.relation(() => comment).optional().list().optional(),
-  likes: g.int().default(0),
-  tags: g.string().optional().list().length({ max: 5 }),
-  author: g.relation(() => user).optional()
-}).search()
-
-const comment = g.model('Comment', {
-  post: g.relation(post),
-  body: g.string(),
-  likes: g.int().default(0),
-  author: g.relation(() => user).optional()
+//@ts-ignore
+const User = g.model('User', {
+  name: g.string().length({ min: 2, max: 20 }),
+  email: g.string().unique(),
+  password: g.string().length({ min: 3 }).optional(),
+  avatarUrl: g.url().optional(),
+  isAdmin: g.boolean().default(false),
+  isModer: g.boolean().default(false),
+  subscriptionD: g.relation(() => Subcscription).list().optional(),
+  posts: g.relation(() => Post).list().optional(),
+  regDate: g.date().default(new Date()),
+}).auth((rules) => {
+  rules.public().read()
 })
 
-const user = g.model('User', {
-  name: g.string(),
-  email: g.email().optional(),
-  posts: g.relation(post).optional().list(),
-  comments: g.relation(comment).optional().list()
+//@ts-ignore
+const Subcscription = g.model('Subscription', {
+  subEmail: g.relation(() => User),
+  type: g.string(),
+  subStart: g.date(),
+  subEnd: g.date(),
+  coast: g.float()
+}).auth((rules) => {
+  rules.public().read()
+})
 
-  // Extend models with resolvers
-  // https://grafbase.com/docs/edge-gateway/resolvers
-  // gravatar: g.url().resolver('user/gravatar')
+//@ts-ignore
+const Post = g.model('Post', {
+  id: g.id().unique(),
+  title: g.string().length({ min: 3 }),
+  text: g.string(),
+  image: g.url(),
+  category: g.string().search(),
+  createdBy: g.relation(() => User)
+}).auth((rules) => {
+  rules.public().read(),
+  rules.private().create().delete().update();
+})
+
+const Comments = g.model('Comments', {
+  postId: g.relation(() => Post),
+  author: g.string(),
+  text: g.string(),
+  commentDate: g.date()
+})
+
+const jwt = auth.JWT({
+  issuer: 'grafbase',
+  secret: g.env('NEXTAUTH_SECRET'),
 })
 
 export default config({
-  schema: g
-  // Integrate Auth
-  // https://grafbase.com/docs/auth
-  // auth: {
-  //   providers: [authProvider],
-  //   rules: (rules) => {
-  //     rules.private()
-  //   }
-  // }
+  schema: g,
+  auth: {
+    providers: [jwt],
+    rules: (rules) => rules.private()
+  }
 })

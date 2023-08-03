@@ -8,9 +8,12 @@ import { RiLockPasswordFill } from 'react-icons/ri';
 import { MdAlternateEmail } from 'react-icons/md';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import Button from '@/components/ui/Button';
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 const Register = () => {
 
+  const router = useRouter();
   const callBackUrl = '/';
   const [email, setEmail] = useState('');
   const [nickname, setNickname] = useState('');
@@ -102,7 +105,7 @@ const Register = () => {
           </div>
           <div className="flex flex-col justify-between gap-4 mt-4">
             <Button title="Sign Up" color="text-white" bgColor="bg-primary-blue" type="submit" />
-            <Button title="Sign Up with Google" type="button" leftIcon="/google.svg" color="text-[#B8BAC3]" borderColor="border-[#E3E3E3]" />
+            <Button title="Sign Up with Google" handleClick={() => {signIn("google", {callbackUrl: "/"})}} type="button" leftIcon="/google.svg" color="text-[#B8BAC3]" borderColor="border-[#E3E3E3]" />
           </div>
         </form>
         <p className="mt-20 text-[#C8C8CF]">

@@ -1,15 +1,20 @@
-"use client";
-
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import Button from './Button';
 import { useRouter } from 'next/navigation';
 import { navLinks } from '@/constants';
+import { getCurrentUser } from '@/lib/session';
+import AuthUserData from './AuthUserData';
 
-const Navbar = () => {
+const Navbar = async () => {
 
-    const router = useRouter();
+    const session = await getCurrentUser();
+
+
+    const handleProfile = () => {
+
+    }
 
   return (
     <nav className="navbar flex justify-between items-center">
@@ -32,8 +37,29 @@ const Navbar = () => {
                 className="text-gray-300 px-6 py-3 bg-blue-400/10 rounded-lg outline-none w-[300px] text-black"
                 placeholder="Search"
             />
-            <Button title="Log In" type="button" handleClick={() => {router.push('/login')}} />
-            <Button title="Sign Up" type="button" bgColor='bg-primary-blue' color='text-white' handleClick={() => {router.push('/register')}} />
+            {session?.user?.isAdmin && (
+                <Link href="/admin" className="px-5 py-3 bg-[#081325] text-white rounded-xl">
+                    Admin Panel
+                </Link>
+            )}
+            {session ? (
+                <>
+                    <AuthUserData name={session?.user?.name} img={session?.user?.avatarUrl} />
+                </>
+            ): (
+                <>
+                    <Link 
+                        href="/login"
+                        className="flex justify-center items-center gap-4 px-4 py-3 text-primary-text rounded-lg text-lg font-medium max-md:w-full box-border"
+                    >
+                        Log In
+                    </Link>
+                    <Link 
+                        href="/register"
+                        className="flex justify-center items-center gap-4 px-4 py-3 text-white bg-primary-blue rounded-lg text-lg font-medium max-md:w-full box-border"
+                    >Sign Up</Link>
+                </>
+            )}
         </div>
     </nav>
   )
