@@ -11,11 +11,6 @@ const Navbar = async () => {
 
     const session = await getCurrentUser();
 
-
-    const handleProfile = () => {
-
-    }
-
   return (
     <nav className="navbar flex justify-between items-center">
         <div className="flex-1 flex justify-start items-center gap-9">

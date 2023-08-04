@@ -7,6 +7,8 @@ import { JWT } from 'next-auth/jwt';
 import { SessionInterface, UserProfile } from "@/common.types";
 import { createUser, getUser } from "./actions";
 import { AdapterUser } from "next-auth/adapters";
+import { NextResponse } from "next/server";
+import { comparePassword } from "./bcryptPassword";
 
 export const authOptions: NextAuthOptions = {
     providers: [
@@ -14,9 +16,34 @@ export const authOptions: NextAuthOptions = {
             clientId: process.env.GOOGLE_CLIENT_ID!,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET!
         }),
-        // Credentials({
+        Credentials({
+            name: "Credentials",
+            credentials: {
+                email: { type: 'text' },
+                password: { type: 'text' }
+            },
+            async authorize(credentials, req) {
+                if (!credentials?.email || !credentials?.password) { 
+                    throw new Error("User not found");
+                }
 
-        // })
+                if (credentials?.email && credentials?.password) {
+                    const res = await getUser(credentials?.email) as { user?: UserProfile };
+                    if (!res.user) {
+                        throw new Error("User not found");
+                    }
+                    console.log(res, ' - res auth');
+                    const isValidPassword = comparePassword(credentials.password, res.user?.password || '');
+                    if(!isValidPassword) {
+                        throw new Error("Wrong password");
+                    }
+                    if (isValidPassword) { 
+                        return res?.user as UserProfile 
+                    }
+                }
+                return null;
+              }
+        })
     ],
     jwt: {
         encode: ({ secret, token }) => {

@@ -8,8 +8,6 @@ export const createUserMutation = `
 				password
 				isAdmin
 				isModer
-				subscription
-				posts
 				id
 			}
 		}

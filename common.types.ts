@@ -24,15 +24,15 @@ export interface UserProfile {
     avatarUrl: string;
     isAdmin: boolean;
     isModer: boolean;
-    subscription: {
-      edges: { node: Subscription }[];
+    subdfg: {
+      edges: { node: Subdfg }[];
     };
     posts: {
       edges: { node: Posts }[];
     }
 }
 
-export interface Subscription {
+export interface Subdfg {
   subId: {
     edges: { node: UserProfile }[];
   };
