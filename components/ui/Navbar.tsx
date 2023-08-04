@@ -33,7 +33,7 @@ const Navbar = async () => {
                 placeholder="Search"
             />
             {session?.user?.isAdmin && (
-                <Link href="/admin" className="px-5 py-3 bg-[#081325] text-white rounded-xl">
+                <Link href="/admin" className="px-5 py-3 bg-dark-blue text-white rounded-xl">
                     Admin Panel
                 </Link>
             )}

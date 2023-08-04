@@ -27,3 +27,15 @@ export const getUserQuery = `
     }
   }
 `;
+
+export const setAdminQuery = `
+  mutation userUpdateAdmin($email: String!) {
+	userUpdate(by: { email: $email }, input: { isAdmin: true }) {
+		user {
+			email
+			name
+			isAdmin
+		}
+	}
+  }
+`;

@@ -20,7 +20,8 @@ module.exports = {
         'auth-slider': '#2E53BC',
         'auth-border': '#F0EFF2',
         'auth-bg-logo': '#F7FAFC',
-        'reg-slider': '#173562'
+        'reg-slider': '#173562',
+        'dark-blue': '#081325'
       }
     },
   },
