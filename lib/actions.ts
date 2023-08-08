@@ -49,7 +49,7 @@ export const getUsersForAdmin = (token: string) => {
 
 export const fetchToken = async () => {
     try {
-        const response = await fetch(`${serverUrl}/api/auth/token`);
+        const response = await fetch('https://my-test-app-z9ls.onrender.com' + '/api/auth/token');
         return response.json();
     } catch (error) {
         throw error;
