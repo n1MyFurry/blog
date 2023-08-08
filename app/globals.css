@@ -113,3 +113,78 @@ body {
 .flexBetween {
     @apply flex justify-between items-center;
 }
+
+.title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #999;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.admin-li {
+    display: flex;
+    align-items: center;
+    padding: 7px;
+    cursor: pointer;
+}
+
+.admin-li:hover {
+    background-color: #ece8ff;
+}
+
+.icon {
+    font-size: 24px;
+    color: #7451f8;
+}
+
+.admin-li > span {
+    font-size: 19px;
+    font-weight: 600;
+    color: #888;
+    margin-left: 10px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+}
+
+.widget {
+    -webkkit-box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
+}
+
+.featured {
+    flex: 2;
+    -webkkit-box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+
+.chart {
+    flex: 4;
+    -webkkit-box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+    color: gray;
+}
+
+.chartGrid {
+    stroke: rgb(228, 225, 225);
+}
+
+.listContainer {
+    -webkkit-box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 20px;
+    margin-bottom: 100px;
+}
+
+.listTitle {
+    font-weight: 500;
+    color: gray;
+    margin-bottom: 15px;
+}

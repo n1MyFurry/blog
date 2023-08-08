@@ -14,3 +14,4 @@ export const navLinks = [
     { text: "Best of the week", href: "/bestweek" },
     { text: "Most viewed", href: "/mostviews" }
 ]
+

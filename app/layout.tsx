@@ -3,6 +3,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import Footer from '@/components/ui/Footer';
 import IndexPage from '@/components/metaData/Head';
+import { SessionProvider } from 'next-auth/react';
 
 export const metadata: Metadata = {
   title: 'Versatility - Bla bkla bka',
