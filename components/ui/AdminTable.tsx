@@ -15,7 +15,7 @@ import { fetchAllUsers } from '@/swrFetch/fetch';
 
 const AdminTable = () => {
 
-  const { data, error, isLoading } = useSWR('/api/getusers', fetchAllUsers);
+  const { data, error, isLoading } = useSWR('https://my-test-app-z9ls.onrender.com' + '/api/getusers', fetchAllUsers);
 
   return (
     <TableContainer component={Paper} className="">
