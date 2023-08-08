@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.3",
     "@mui/material": "^5.14.3",
+    "@mui/x-data-grid": "^6.11.0",
     "@next/font": "^13.4.12",
     "@types/jsonwebtoken": "^9.0.2",
     "@types/node": "20.4.5",

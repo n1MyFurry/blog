@@ -32,6 +32,23 @@ export interface UserProfile {
     }
 }
 
+export interface UserAdminInfo {
+  userCollection: {
+    edges: {
+      node: {
+        id: string;
+        name: string;
+        email: string;
+        password: string;
+        avatarUrl: string;
+        isAdmin: boolean;
+        isModer: boolean;
+        regDate: Date;
+      }
+    }[]
+  }
+}
+
 export interface Subdfg {
   subId: {
     edges: { node: UserProfile }[];

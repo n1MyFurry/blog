@@ -1,4 +1,9 @@
-import { createUserMutation, getUserQuery, setAdminQuery } from "@/graphql";
+import { 
+    createUserMutation, 
+    getUserQuery, 
+    setAdminQuery,
+    getUsersForAdminQuery
+} from "@/graphql";
 import { GraphQLClient } from "graphql-request";
 
 const isProduction = process.env.NODE_ENV === "production";
@@ -34,4 +39,19 @@ export const getUser = (email: string) => {
 export const setAdmin = (email: string) => {
     client.setHeader('x-api-key', apiKey);
     return makeGraphQLRequest(setAdminQuery, { email });
+}
+
+export const getUsersForAdmin = (token: string) => {
+    client.setHeader('x-api-key', apiKey);
+    client.setHeader('Authorization', `Bearer ${token}`);
+    return makeGraphQLRequest(getUsersForAdminQuery);
+}
+
+export const fetchToken = async () => {
+    try {
+        const response = await fetch(`${serverUrl}/api/auth/token`);
+        return response.json();
+    } catch (error) {
+        throw error;
+    }
 }

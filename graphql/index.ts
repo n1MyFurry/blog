@@ -39,3 +39,22 @@ export const setAdminQuery = `
 	}
   }
 `;
+
+export const getUsersForAdminQuery = `
+	query UserCollection {
+		userCollection(orderBy: {createdAt: ASC}, first: 10) {
+			edges {
+				node {
+				id
+				name
+				email
+				password
+				avatarUrl
+				isAdmin
+				isModer
+				regDate
+				}
+			}
+		}
+	}
+`;

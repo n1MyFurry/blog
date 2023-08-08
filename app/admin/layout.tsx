@@ -29,60 +29,84 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <ul className="m-0 p-0">
             <p className="title">MAIN</p>
             <li className="admin-li">
+              <Link href="/admin">
                 <DashboardIcon className="icon" />
                 <span>Dashboard</span>
+              </Link>
             </li>
             <p className="title">LISTS</p>
             <li className="admin-li">
+              <Link href="/admin/users">
                 <PersonOutlineOutlinedIcon className="icon" />
                 <span>Users</span>
+              </Link>
             </li>
             <li className="admin-li">
+              <Link href="/admin/posts">
                 <NewspaperIcon className="icon" />
                 <span>Posts</span>
+              </Link>
             </li>
             <li className="admin-li">
+              <Link href="/admin/creators">
                 <PeopleAltIcon className="icon" />
                 <span>Creators</span>
+              </Link>
             </li>
             <p className="title">USEFUL</p>
             <li className="admin-li">
+              <Link href="/admin/stats">
                 <AssessmentIcon className="icon" />
                 <span>Stats</span>
+              </Link>
             </li>
             <li className="admin-li">
+              <Link href="/admin/todo">
                 <FormatListBulletedIcon className="icon" />
                 <span>To-do List</span>
+              </Link>
             </li>
             <li className="admin-li">
+              <Link href="/admin/adminnotifications">
                 <NotificationsNoneIcon className="icon" />
                 <span>Notifications</span>
+              </Link>
             </li>
             <p className="title">SERVICE</p>
             <li className="admin-li">
+              <Link href="/admin/createpost">
                 <AddIcon className="icon" />
                 <span>Create Post</span>
+              </Link>
             </li>
             <li className="admin-li">
+              <Link href="/admin/editpost">
                 <EditIcon className="icon" />
                 <span>Edit Post</span>
+              </Link>
             </li>
             <li className="admin-li">
+              <Link href="/admin/moderatepost">
                 <ShieldIcon className="icon" />
                 <span>Moderate Post</span>
+              </Link>
             </li>
             <p className="title">USER</p>
             <li className="admin-li">
+              <Link href="/admin/adminsettings">
                 <SettingsSuggestIcon className="icon" />
                 <span>Settings</span>
+              </Link>
             </li>
             <li className="admin-li">
+              <Link href="/admin/profile">
                 <AccountBoxIcon className="icon" />
                 <span>Profile</span>
+              </Link>
             </li>
             <li className="admin-li">
-                <LogoutIcon className="icon" />
-                <span>Logout</span>
+              <LogoutIcon className="icon" />
+              <span>Logout</span>
             </li>
           </ul>
         </div>

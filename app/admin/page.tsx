@@ -18,7 +18,7 @@ const Home = () => {
         <Chart />
       </div>
       <div className="listContainer">
-        <div className="listTitle">Latest Transactions</div>
+        <div className="listTitle">Latest Posts // Show here last 5 created posts</div>
         <AdminTable />
       </div>
     </div>
