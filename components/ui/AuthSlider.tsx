@@ -11,7 +11,7 @@ import Image from 'next/image';
 const AuthSlider = () => {
   return (
     <div className="flex justify-center items-center w-full h-full">
-        <Swiper pagination={true} loop={true} autoplay={{delay: 3000}} modules={[Pagination, Autoplay]} className="mySwiper">
+        <Swiper pagination={true} loop={true} autoplay={{delay: 3000}} modules={[Pagination, Autoplay]} className="mySwiper w-[800px] h-[800px]">
             <SwiperSlide>
                 <div className="w-full h-full flex justify-center items-center flex-col gap-10">
                     <Image src="/shapes/search.svg" width={600} height={600} alt="alt" />

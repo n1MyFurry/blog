@@ -19,7 +19,7 @@ import AdminSwitchTheme from '@/components/ui/AdminSwitchTheme';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="w-full h-full flex flex-row overflow-y-hidden">
+    <div className="w-full h-full flex flex-row">
       <div className="sidebar flex-1 border-r-[0.5px] border-[#E6E3E3] min-h-screen bg-white">
         <div className="top h-[80px] flex items-center justify-center">
           <Link href="/" className={`logo ${myVar.className} text-3xl text-primary-blue`}>Versatility</Link>
@@ -114,7 +114,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       </div>
       <div className="flex-[6]">
         <AdminNavbar />
-        {children}
+        <div className="calc_admin-container relative">
+          {children}
+        </div>
       </div>
     </div>
   )

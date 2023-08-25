@@ -28,6 +28,20 @@ export const getUserQuery = `
   }
 `;
 
+export const getUserByIdQuery = `
+  query GetUserById($id: ID!) {
+    user(by: { id: $id }) {
+    	id
+		name
+		email
+		avatarUrl
+		isAdmin
+		isModer
+		regDate
+    }
+  }
+`;
+
 export const setAdminQuery = `
   mutation userUpdateAdmin($email: String!) {
 	userUpdate(by: { email: $email }, input: { isAdmin: true }) {

@@ -15,7 +15,7 @@ const Home = () => {
       </div>
       <div className="charts flex pt-[5px] pb-[5px] pl-5 pr-5 gap-5">
         <Featured />
-        <Chart />
+        <Chart aspect={2 / 1} title="Last 6 Months (Revenue)" />
       </div>
       <div className="listContainer">
         <div className="listTitle">Latest Posts // Show here last 5 created posts</div>

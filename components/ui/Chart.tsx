@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart, Area } from 'recharts';
 
-const Chart = () => {
+const Chart = ({ aspect, title }: { aspect: number, title: string }) => {
 
   const [ready, setReady] = useState(false);
 
@@ -22,9 +22,9 @@ const Chart = () => {
 
   return (
     <div className="chart">
-      <div className="mb-5 text-base font-medium">Last 6 Months (Revenue)</div>
+      <div className="mb-5 text-base font-medium">{title}</div>
       {ready && (
-        <ResponsiveContainer width="100%" aspect={2 / 1}>
+        <ResponsiveContainer width="100%" aspect={aspect}>
           <AreaChart 
             width={730} 
             height={250} 

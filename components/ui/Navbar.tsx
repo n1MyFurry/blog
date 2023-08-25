@@ -28,8 +28,8 @@ const Navbar = async () => {
                 <span className="text-primary-blue">Versatility</span>
             </Link>
             <div className="ml-10 flex flex-row justify-start items-center gap-5">
-                {navLinks.map((link) => (
-                    <Link href={link.href} key={link.href} className="font-semibold">{link.text}</Link>
+                {navLinks.map((link, index) => (
+                    <Link href={link.href} key={index} className="font-semibold">{link.text}</Link>
                 ))}
             </div>
         </div>

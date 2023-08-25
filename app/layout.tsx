@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import Footer from '@/components/ui/Footer';
 import IndexPage from '@/components/metaData/Head';
 import { SessionProvider } from 'next-auth/react';
+import { ReduxProvider } from '@/store/provider';
 
 export const metadata: Metadata = {
   title: 'Versatility - Bla bkla bka',
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
+        <ReduxProvider>
+          {children}
+        </ReduxProvider>
       </body>
     </html>
   )

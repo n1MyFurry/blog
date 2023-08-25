@@ -24,6 +24,7 @@ export interface UserProfile {
     avatarUrl: string;
     isAdmin: boolean;
     isModer: boolean;
+    regDate: Date;
     subdfg: {
       edges: { node: Subdfg }[];
     };

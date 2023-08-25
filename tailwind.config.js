@@ -21,7 +21,11 @@ module.exports = {
         'auth-border': '#F0EFF2',
         'auth-bg-logo': '#F7FAFC',
         'reg-slider': '#173562',
-        'dark-blue': '#081325'
+        'dark-blue': '#081325',
+        'list-slide-one': '#AF4DFC',
+        'list-slide-two': '#FA50AE',
+        'list-slide-three': '#FE6143',
+        'list-slide-four': '#F7DCE9',
       }
     },
   },

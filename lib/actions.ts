@@ -2,7 +2,8 @@ import {
     createUserMutation, 
     getUserQuery, 
     setAdminQuery,
-    getUsersForAdminQuery
+    getUsersForAdminQuery,
+    getUserByIdQuery
 } from "@/graphql";
 import { GraphQLClient } from "graphql-request";
 
@@ -36,6 +37,11 @@ export const getUser = (email: string) => {
     return makeGraphQLRequest(getUserQuery, { email });
 }
 
+export const getUserById = (id: string) => {
+    client.setHeader('x-api-key', apiKey);
+    return makeGraphQLRequest(getUserByIdQuery, { id });
+}
+
 export const setAdmin = (email: string) => {
     client.setHeader('x-api-key', apiKey);
     return makeGraphQLRequest(setAdminQuery, { email });
@@ -49,7 +55,7 @@ export const getUsersForAdmin = (token: string) => {
 
 export const fetchToken = async () => {
     try {
-        const response = await fetch('https://my-test-app-z9ls.onrender.com' + '/api/auth/token');
+        const response = await fetch(`${serverUrl}/api/auth/token`);
         return response.json();
     } catch (error) {
         throw error;
